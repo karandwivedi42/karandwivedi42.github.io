@@ -1,6 +1,6 @@
 # Site settings
-title: Project Pages
-description: "An Integrated Scientific Blogging Template"
+title: Karan's Blog
+description: "CV/DL Projects"
 url: "https://karandwivedi42.github.io"
 
 
@@ -10,14 +10,14 @@ url: "https://karandwivedi42.github.io"
 # baseurl: "/karandwivedi42.github.io"
 header-img: img/home-bg.jpg
 headercolor: "#FFFFFF"
-logo: /img/logos/Project-Pages-New-Logo-Inverted.png
+# logo: /img/logos/Project-Pages-New-Logo-Inverted.png
 
 # Tertiary Parameters
 github_username:  karandwivedi42
 project_repository: karandwivedi42.github.io
-disqus_shortname: project-pages
-g-analytics: UA-75881392-1
-altmetric: true
+# disqus_shortname: project-pages
+g-analytics: UA-78106784-2
+# altmetric: true
 
 # Build settings
 gems: [jekyll-paginate]
