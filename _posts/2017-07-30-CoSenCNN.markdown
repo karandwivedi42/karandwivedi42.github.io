@@ -1,0 +1,77 @@
+---
+layout:     post
+title:      Cost Sensitive CNN
+author:     Karan Dwivedi
+tags:       paper-summary classification
+subtitle:   
+category:   qure
+---
+
+- **Paper**: Cost-Sensitive Learning of Deep Feature Representations from Imbalanced Data
+
+- **Authors**: S. H. Khan, M. Hayat, M. Bennamoun, F. Sohel and R. Togneri
+
+- **Link**: [https://arxiv.org/pdf/1508.03422v3.pdf](https://arxiv.org/pdf/1508.03422v3.pdf)
+
+- **tl;dr**: At the output of a standard CNN, add a layer that multiplies outputs[targets == q,p] with a value $\xi_{p,q}$. $\xi$ is initialised to 1 $\forall p,q$. Before each epoch, $\xi$ is updated based on  class-to-class separability and classification errors.
+
+### Related Works
+
+Some recent papers that deal with class imbalance in DNN are: 
+
+1. Y.-A. Chung, H.-T. Lin, and S.-W. Yang, “**Cost-aware pretraining
+for multiclass cost-sensitive deep learning**,” arXiv
+preprint arXiv:1511.09337, 2015.
+
+- Introduces smooth one-sided regression (SOSR) loss.
+
+2. S. Wang, W. Liu, J. Wu, L. Cao, Q. Meng, and P. J. Kennedy,
+“**Training deep neural networks on imbalanced data sets**,” in
+Neural Networks (IJCNN), 2016 International Joint Conference
+on. IEEE, 2016, pp. 4368–4374.
+
+- Introduces a novel loss function called mean false error
+
+### Formulation
+
+1. *Cost Matrix*: The (p,q)<sup>th</sup> cell represents the misclassification cost of classifying an instance belonging to a class p into a different class q. For example, for 0-1 Loss, Cost matrix is:
+
+| **Actual \ Predicted** | **0** (Negative)| **1** (Positive)
+| **0** (Negative)| 0 | 1
+| **1** (Positive)| 1 | 0
+
+### Proposed Idea
+
+The cost matrix $\xi$ is used to modify the output of the last layer of a CNN **(before the softmax and the loss layer)**. The resulting activations are then squashed between [0, 1] before the computation of the classification loss.
+
+Note that the score-level costs perturb the classifier confidences. Such perturbation allows the classifier to give more importance to the less frequent and difficult-to-separate classes.
+
+#### Cost-Sensitive Surrogate Losses
+
+$$
+ y_n = \frac{\xi_{p,n} e^{o_n}}{\sum_k\xi_{p,k}e^{o_k}}
+$$
+
+#### Optimal Parameters Learning
+
+We initialise the $\xi$ matrix with all ones. Then before each epoch, we update the cost matrix. At end of each epoch, we decide whether to reduce the LR for cost matrix based on validation accuracy.
+
+The cost function is dependent on the class-to-class separability, the current classification errors made by the network with current estimate of parameters and the overall classification error.
+
+![Description](/img/CoSenCNN/algo.png)
+
+<sup><sub>Note that the proposed cost function can be easily extended to include an externally defined cost matrix for applications where expert opinion is necessary. However, this paper mainly deals with class-imbalance in image classification datasets where externally specified costs are not required.</sub></sup>
+
+### DID NOT UNDERSTAND: This method uses the validation set to update parameters. Isn't there a chance of overfitting on the val set?
+
+_Left reading until I can clear the above._
+
+### TakeAway:
+
+1. Cost Matrix formulation.
+
+2. Embedding distances in feature space is a good secondary objective.
+
+3. The idea of adding a layer on top of existing network to weight the misclassification cost.
+
+4. The core idea: Learnable misclassification cost.
