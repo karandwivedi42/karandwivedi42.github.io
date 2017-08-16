@@ -7,15 +7,13 @@ category:   iitd
 subtitle:   MIT Saliency Benchmark Leaderboard - Papers
 ---
 
-As a part of my BTP, I am working on Visual Saliency Models and to begin, I am reviewing some of the papers mentioned on the [MIT Saliency Benchmark](http://saliency.mit.edu) website. The summary for the latest paper is a bit long (as it is the SoTA), for the rest, I have highlighted the major contributions.
+In this post I am reviewing some of the papers mentioned on the [MIT Saliency Benchmark](http://saliency.mit.edu) website.
 
-_(Sorted Reverse Chronologically)_
+<sup><sub>(Sorted Reverse Chronologically)</sub></sup>
 
 ## What is Visual Saliency Prediction?
 
 Humans make several eye movements per second, bringing the things they want to see into focus. The problem of predicting fixation locations given the image the observer is viewing is called saliency prediction.
-
-## Paper Summaries
 
 ### [Predicting Human Eye Fixations via an LSTM-based Saliency Attentive Model](https://arxiv.org/abs/1611.09571v2)
 
@@ -33,13 +31,13 @@ Humans make several eye movements per second, bringing the things they want to s
 
 1. *Dilated Convolutional Network*: One of the main drawbacks of using CNNs to extract features for saliency prediction is that they considerably rescale the input image during the feature extraction phase.
 
-- ResNet-50: _"..we remove the stride and introduce dilated convolutions in the last two blocks. In particular, we introduce holes of size 1 in the kernels of the block conv4 and holes of size 2<sup>2</sup> − 1 = 3 in the kernels of the block conv5..."_
+    - ResNet-50: _"..we remove the stride and introduce dilated convolutions in the last two blocks. In particular, we introduce holes of size 1 in the kernels of the block conv4 and holes of size 2<sup>2</sup> − 1 = 3 in the kernels of the block conv5..."_
 
-- VGG-16: _"..we remove the last max-pooling layer and we set the stride to 1 in the last but one. Besides, we introduce dilated convolutions (with hole size 1) in the last convolutional block."_
+    - VGG-16: _"..we remove the last max-pooling layer and we set the stride to 1 in the last but one. Besides, we introduce dilated convolutions (with hole size 1) in the last convolutional block."_
 
 2. *Attentive Convolutional LSTM*: This part is used to iteratively refine the saliency map.
 
-ConvLSTM is an LSTM in which dot product is replaced by Convolution layer. Attention mechanism is incorporated by adding another branch to the LSTM output, which predicts an attention map which is multiplied to the output feature map.
+    ConvLSTM is an LSTM in which dot product is replaced by Convolution layer. Attention mechanism is incorporated by adding another branch to the LSTM output, which predicts an attention map which is multiplied to the output feature map.
 
 3. *Learned Priors*: Gaussian feature maps are appended to the 512 refined output feature maps obtained. The parameters of these gaussians (mean, std) are learnt by backpropogation.
 

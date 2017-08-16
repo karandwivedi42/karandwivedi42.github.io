@@ -8,7 +8,7 @@ url: "https://karandwivedi42.github.io"
 
 # Secondary Parameters
 # baseurl: "/karandwivedi42.github.io"
-header-img: img/home-bg2.jpg
+header-img: img/home-bg.jpg
 headercolor: "#FFFFFF"
 # logo: /img/logos/Project-Pages-New-Logo-Inverted.png
 
@@ -36,7 +36,7 @@ defaults:
       type: "pages"
     values:
       layout: "project"
-      header-img: "img/home-bg2.jpg"
+      header-img: "img/home-bg.jpg"
 
 # Prose Settings
 prose:
