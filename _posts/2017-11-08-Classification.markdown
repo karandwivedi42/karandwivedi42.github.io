@@ -11,24 +11,24 @@ I am reading more about diverse topics, so I completely lost track of the grandf
 
 This is a list of the "classification architectures" in winning approaches.
 
-# 1. Dual Path Network
+### 1. Dual Path Network
 
-    - [Slides](http://image-net.org/challenges/talks_2017/ilsvrc2017_DPNs.pdf)
+- [Slides](http://image-net.org/challenges/talks_2017/ilsvrc2017_DPNs.pdf)
 
-# 2. Squeeze-and-Excitation Networks
+### 2. Squeeze-and-Excitation Networks
 
-    - [Slides](http://image-net.org/challenges/talks_2017/SENet.pdf)
+- [Slides](http://image-net.org/challenges/talks_2017/SENet.pdf)
 
-# 3. Deep Pyramidal Residual Networks
+### 3. Deep Pyramidal Residual Networks
 
-    - [Paper](https://arxiv.org/pdf/1610.02915.pdf)
+- [Paper](https://arxiv.org/pdf/1610.02915.pdf)
 
-# 4. Residual Attention
+### 4. Residual Attention
 
-    - [Paper](https://arxiv.org/abs/1704.06904)
+- [Paper](https://arxiv.org/abs/1704.06904)
 
-# 5. ResNeXt
+### 5. ResNeXt
 
-    - [Paper](https://arxiv.org/abs/1611.05431)
+- [Paper](https://arxiv.org/abs/1611.05431)
 
 **How interesting it seems? 2 > 1 > 4 > 5 = 3**
